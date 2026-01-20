@@ -1,9 +1,20 @@
 TODO:
+- update pip use to python3 -m pip install python-chess
 - Use pypy?
 - git actions?
 - exec all the pipeline when machine starts
 - outputs with the status of the process.
 
+
+# Download file
+scp -i chave.pem usuario@IP_DA_EC2:/caminho/do/arquivo ./ 
+
+or
+
+cd /home/ec2-user/dados
+python3 -m http.server 8000
+
+http://IP_DA_EC2:8000/resultado.csv
 
 # Jupyter hash key new login
 journalctl -u jupyter
