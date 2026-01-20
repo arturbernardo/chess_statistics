@@ -60,6 +60,17 @@ Resources:
             git \
             htop
 
+          # Clone do repositorio
+          sudo -u ubuntu git clone https://github.com/arturbernardo/chess_statistics.git \
+          /home/ubuntu/chess_statistics
+
+          # Parallel 
+          sudo apt install parallel
+
+          #pgn manipulator
+          sudo apt update
+          sudo apt install pgn-extract
+
           # Jupyter
           pip3 install --upgrade pip
           pip3 install jupyterlab notebook
