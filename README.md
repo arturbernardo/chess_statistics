@@ -21,8 +21,8 @@ sudo cp stockfish /usr/local/bin/stockfish-avx2
 
 
 
-# transmotir arquivo
-scp -i n8n.pem ~/Downloads/lichess_db_standard_rated_2013-01.pgn ubuntu@204.236.198.227:/home/ubuntu
+# transmitir arquivo
+scp -i n8n.pem ~/Downloads/lichess_db_standard_rated_2013-01.pgn ubuntu@IP:/home/ubuntu
 
 
 # 1 
