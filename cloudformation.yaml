@@ -46,50 +46,57 @@ Resources:
       UserData:
         Fn::Base64: |
           #!/bin/bash
-          set -e
+          set -eux
 
-          apt update
-          apt upgrade -y
+          apt-get update
+          apt-get upgrade -y
 
-          # Dependencias
-          apt install -y \
+          # Repos
+          apt-get install -y software-properties-common
+          add-apt-repository universe
+          apt-get update
+
+          # Dependências (NUNCA sem -y)
+          apt-get install -y \
             python3 \
             python3-pip \
             python3-venv \
             stockfish \
             git \
-            htop
+            htop \
+            parallel \
+            pgn-extract
 
-          # Clone do repositorio
+          # Repo
           sudo -u ubuntu git clone https://github.com/arturbernardo/chess_statistics.git \
-          /home/ubuntu/chess_statistics
+            /home/ubuntu/chess_statistics
 
-          # Parallel 
-          sudo apt install parallel
+          # chmod project
+          chmod -Rf 777 /home/ubuntu/chess_statistics
 
-          #pgn manipulator
-          sudo apt update
-          sudo apt install pgn-extract
+          #Python chess 
+          pip3 install chess
 
-          # Jupyter
-          pip3 install --upgrade pip
-          pip3 install jupyterlab notebook
+          # Ambiente Python do ubuntu
+          sudo -u ubuntu python3 -m venv /home/ubuntu/venv
+          sudo -u ubuntu /home/ubuntu/venv/bin/pip install --upgrade pip
+          sudo -u ubuntu /home/ubuntu/venv/bin/pip install \
+            jupyterlab notebook python-chess
 
-          # Python Chess
-          pip3 install python-chess
-
-          # Usuario ubuntu
+          # Jupyter dir
           mkdir -p /home/ubuntu/jupyter
           chown -R ubuntu:ubuntu /home/ubuntu/jupyter
 
           # Config Jupyter
-          sudo -u ubuntu jupyter lab --generate-config
+          sudo -u ubuntu /home/ubuntu/venv/bin/jupyter lab --generate-config
           CONFIG=/home/ubuntu/.jupyter/jupyter_lab_config.py
 
-          echo "c.ServerApp.ip = '0.0.0.0'" >> $CONFIG
-          echo "c.ServerApp.open_browser = False" >> $CONFIG
-          echo "c.ServerApp.port = 8888" >> $CONFIG
-          echo "c.ServerApp.allow_root = True" >> $CONFIG
+          cat >> $CONFIG <<EOF
+          c.ServerApp.ip = '0.0.0.0'
+          c.ServerApp.open_browser = False
+          c.ServerApp.port = 8888
+          c.ServerApp.allow_root = False
+          EOF
 
           # Service
           cat <<EOF > /etc/systemd/system/jupyter.service
@@ -100,7 +107,7 @@ Resources:
           [Service]
           Type=simple
           User=ubuntu
-          ExecStart=/usr/local/bin/jupyter lab --notebook-dir=/home/ubuntu/jupyter
+          ExecStart=/home/ubuntu/venv/bin/jupyter lab --notebook-dir=/home/ubuntu/jupyter
           Restart=always
 
           [Install]
@@ -110,6 +117,7 @@ Resources:
           systemctl daemon-reload
           systemctl enable jupyter
           systemctl start jupyter
+
 
 Outputs:
   PublicIP:
