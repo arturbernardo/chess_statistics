@@ -1,4 +1,5 @@
 TODO:
+- Add elo of the players to the analysis csv.
 - Analyse only the movements of the user in question. It is currently evaluating all the movements of the game.
 - .out is not showing the cp. But running in the terminal shows all the depths and cps. Some stdin stdout magic need to be solved. (DONE)
 - update pip use to python3 -m pip install python-chess (DONE)
@@ -106,8 +107,17 @@ python3 pgn_to_fen.py input.pgn \
 | python3 eval.py \
 > analysis.csv
 
-#sort 
+#sorted 
 sort -t, -k1,1n -k2,2n analysis.csv > analysis_sorted.csv
+
+# RUN and SORT
+python3 pgn_to_fen.py input.pgn \
+| python3 eval.py \
+| { read -r header; echo "$header"; sort -t, -k1,1n -k2,2n; } \
+> analysis.csv
+
+
+python3 pgn_to_fen.py input.pgn | python3 eval.py | { read -r header; echo "$header"; sort -t, -k1,1n -k2,2n; } > analysis.csv
 
 
 DEPRECATED:
