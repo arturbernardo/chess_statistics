@@ -19,7 +19,7 @@ def init_engine():
     })
 
 def analyse_row(row):
-    game_id, move_number, white, black, fen = row
+    game_id, move_number, white, black, san, uci, fen, link = row
     board = chess.Board(fen)
 
     t0 = time.time()
@@ -33,10 +33,13 @@ def analyse_row(row):
         move_number,
         white,
         black,
+        san,
+        uci,
         info.get("depth", DEPTH),
         score,
         info.get("nodes", 0),
-        int((t1 - t0) * 1000)
+        int((t1 - t0) * 1000),
+        link
     ]
 
 def main():
@@ -49,10 +52,13 @@ def main():
         "move",
         "white",
         "black",
+        "san",
+        "uci",
         "depth",
         "score_cp",
         "nodes",
-        "time_ms"
+        "time_ms",
+        "link"
     ])
 
     with Pool(
