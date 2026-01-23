@@ -3,39 +3,57 @@ import chess.engine
 import csv
 import sys
 import time
+from multiprocessing import Pool, cpu_count
+from tqdm import tqdm
 
-STOCKFISH_PATH = "/usr/bin/stockfish"
+STOCKFISH_PATH = "/usr/games/stockfish"
 DEPTH = 18
+WORKERS = max(1, cpu_count() - 1)
 
-engine = chess.engine.SimpleEngine.popen_uci(STOCKFISH_PATH)
+def init_engine():
+    global engine
+    engine = chess.engine.SimpleEngine.popen_uci(STOCKFISH_PATH)
+    engine.configure({
+        "Threads": 1,
+        "Hash": 256
+    })
 
-writer = csv.writer(sys.stdout)
-writer.writerow(["game", "move", "depth", "score_cp", "nodes", "time_ms"])
-
-reader = csv.reader(sys.stdin)
-
-for game_id, move_number, fen in reader:
+def analyse_row(row):
+    game_id, move_number, fen = row
     board = chess.Board(fen)
 
-    start = time.time()
-    info = engine.analyse(
-        board,
-        chess.engine.Limit(depth=DEPTH)
-    )
-    elapsed_ms = int((time.time() - start) * 1000)
+    t0 = time.time()
+    info = engine.analyse(board, chess.engine.Limit(depth=DEPTH))
+    t1 = time.time()
 
     score = info["score"].pov(board.turn).score(mate_score=10000)
 
-    depth = info.get("depth", DEPTH)
-    nodes = info.get("nodes", 0)
-
-    writer.writerow([
+    return [
         game_id,
         move_number,
-        depth,
+        info.get("depth", DEPTH),
         score,
-        nodes,
-        elapsed_ms
-    ])
+        info.get("nodes", 0),
+        int((t1 - t0) * 1000)
+    ]
 
-engine.quit()
+def main():
+    reader = csv.reader(sys.stdin)
+    rows = list(reader)
+
+    writer = csv.writer(sys.stdout)
+    writer.writerow(["game", "move", "depth", "score_cp", "nodes", "time_ms"])
+
+    with Pool(
+        processes=WORKERS,
+        initializer=init_engine
+    ) as pool:
+        for result in tqdm(
+            pool.imap_unordered(analyse_row, rows),
+            total=len(rows),
+            file=sys.stderr
+        ):
+            writer.writerow(result)
+
+if __name__ == "__main__":
+    main()

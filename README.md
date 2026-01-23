@@ -100,15 +100,21 @@ pgn-extract -Wlalg \
 ### se quiser apenas validar antes
 --check-only
 
+# RUNS
+python3 pgn_to_fen.py input.pgn \
+| python3 eval.py \
+> analysis.csv
 
-# 1 
-python pgn_to_fen.py lichess_db_standard_rated_2013-01.pgn.pgn > positions.csv
 
-# 2
+DEPRECATED:
+1 
+python3 pgn_to_fen.py input.pgn > positions.csv
+
+2
 ./fen_to_uci.sh
 
-# 3 
+3 (problems with stdin stdout) 
 parallel -j 8 stockfish \< {} \> {.}.out ::: uci/*.uci
 
-# 4
-python parse_out.py > analysis.csv
+4
+python3 parse_out.py > analysis.csv
