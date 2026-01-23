@@ -19,7 +19,7 @@ def init_engine():
     })
 
 def analyse_row(row):
-    game_id, move_number, fen = row
+    game_id, move_number, white, black, fen = row
     board = chess.Board(fen)
 
     t0 = time.time()
@@ -31,6 +31,8 @@ def analyse_row(row):
     return [
         game_id,
         move_number,
+        white,
+        black,
         info.get("depth", DEPTH),
         score,
         info.get("nodes", 0),
@@ -42,7 +44,16 @@ def main():
     rows = list(reader)
 
     writer = csv.writer(sys.stdout)
-    writer.writerow(["game", "move", "depth", "score_cp", "nodes", "time_ms"])
+    writer.writerow([
+        "game",
+        "move",
+        "white",
+        "black",
+        "depth",
+        "score_cp",
+        "nodes",
+        "time_ms"
+    ])
 
     with Pool(
         processes=WORKERS,

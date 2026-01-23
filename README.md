@@ -1,10 +1,11 @@
 TODO:
-- .out is not showing the cp. But running in the terminal shows all the depths and cps. Some stdin stdout magic need to be solved.
-- update pip use to python3 -m pip install python-chess
-- Use pypy?
-- git actions?
+- Analyse only the movements of the user in question. It is currently evaluating all the movements of the game.
+- .out is not showing the cp. But running in the terminal shows all the depths and cps. Some stdin stdout magic need to be solved. (DONE)
+- update pip use to python3 -m pip install python-chess (DONE)
+- Use pypy? (Only if some heavy work  is added to python code)
+- git actions? (NO)
 - exec all the pipeline when machine starts
-- outputs with the status of the process.
+- outputs with the status of the process. (DONE)
 
 # Stack result
 aws cloudformation describe-stacks --stack-name chess-analysis
@@ -104,6 +105,9 @@ pgn-extract -Wlalg \
 python3 pgn_to_fen.py input.pgn \
 | python3 eval.py \
 > analysis.csv
+
+#sort 
+sort -t, -k1,1n -k2,2n analysis.csv > analysis_sorted.csv
 
 
 DEPRECATED:
