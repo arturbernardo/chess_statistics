@@ -26,7 +26,7 @@ def analyse_row(row):
     info = engine.analyse(board, chess.engine.Limit(depth=DEPTH))
     t1 = time.time()
 
-    score = info["score"].pov(board.turn).score(mate_score=10000)
+    score = info["score"].white().score(mate_score=10000)
 
     return [
         game_id,

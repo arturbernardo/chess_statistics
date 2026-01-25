@@ -1,4 +1,5 @@
 TODO:
+- Board original position cp must be accounted for? 
 - Add elo of the players to the analysis csv.
 - Analyse only the movements of the user in question. It is currently evaluating all the movements of the game.
 - .out is not showing the cp. But running in the terminal shows all the depths and cps. Some stdin stdout magic need to be solved. (DONE)
@@ -122,10 +123,13 @@ python3 pgn_to_fen.py input.pgn \
 | { read -r header; echo "$header"; sort -t, -k1,1n -k2,2n; } \
 > analysis.csv
 
+
+# the order is important. cpl is calculated comparing
+# current move with the last position cp. The eval output need to be ordered. 
 python3 pgn_to_fen.py input.pgn \
 | python3 eval.py \
-| python3 cpl.py \
 | { read -r header; echo "$header"; sort -t, -k1,1n -k2,2n; } \
+| python3 cpl.py \
 > analysis.csv
 
 

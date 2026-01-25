@@ -14,7 +14,7 @@ for i, row in enumerate(rows):
     move = int(row["move"])
     is_white = move % 2 == 1
     sign = 1 if is_white else -1
-    
+
     # Eval before is zero if it is the first move
     if move == 1:
         eval_before = 0
