@@ -7,6 +7,7 @@ TODO:
 - git actions? (NO)
 - exec all the pipeline when machine starts
 - outputs with the status of the process. (DONE)
+- Analysis based on knowledge from here https://drive.google.com/file/d/11IokKgTVSXdpYEzAuyViIleSZ_2wl0ag/view
 
 # Stack result
 aws cloudformation describe-stacks --stack-name chess-analysis
@@ -107,12 +108,23 @@ python3 pgn_to_fen.py input.pgn \
 | python3 eval.py \
 > analysis.csv
 
+python3 pgn_to_fen.py input.pgn \
+| python3 eval.py \
+| python3 cpl.py \
+> analysis.csv
+
 #sorted 
 sort -t, -k1,1n -k2,2n analysis.csv > analysis_sorted.csv
 
 # RUN and SORT
 python3 pgn_to_fen.py input.pgn \
 | python3 eval.py \
+| { read -r header; echo "$header"; sort -t, -k1,1n -k2,2n; } \
+> analysis.csv
+
+python3 pgn_to_fen.py input.pgn \
+| python3 eval.py \
+| python3 cpl.py \
 | { read -r header; echo "$header"; sort -t, -k1,1n -k2,2n; } \
 > analysis.csv
 

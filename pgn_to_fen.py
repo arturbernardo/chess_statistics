@@ -19,10 +19,11 @@ while True:
     for move in game.mainline_moves():
         san = board.san(move)
         uci = move.uci()
-        fen = board.fen()
 
         board.push(move)
         move_number += 1
+
+        fen = board.fen()
         
         print(f"{game_id},{move_number},{white},{black},{san},{uci},{fen},{link}")
 
