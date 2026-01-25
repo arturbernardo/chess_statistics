@@ -1,0 +1,659 @@
+[Event "rated blitz game"]
+[Site "https://lichess.org/xPjwCh98"]
+[Date "2023.05.12"]
+[Round "-"]
+[White "AlexanderKhromov"]
+[Black "ArturBK"]
+[Result "0-1"]
+[WhiteElo "1633"]
+[BlackElo "1704"]
+[ECO "A03"]
+[TimeControl "180+2"]
+[UTCDate "2023.05.12"]
+[UTCTime "21:47:34"]
+[Variant "Standard"]
+[Termination "Time forfeit"]
+[GameId "xPjwCh98"]
+[WhiteRatingDiff "-5"]
+[BlackRatingDiff "+15"]
+
+1. f4 d5 2. e3 Bf5 3. d4 e6 4. g4 Qh4+ 5. Kd2 Bxg4 6. Be2 Bxe2 7. Qxe2 Bb4+
+8. c3 Bd6 9. Nf3 Qe7 10. Rg1 g6 11. Na3 Nf6 12. Nb5 Ne4+ 13. Kc2 Nd7 14.
+Nxd6+ Nxd6 15. Bd2 Nf6 16. Be1 b5 17. Bh4 Nde4 18. Ne5 O-O 19. Qxb5 Kg7 20.
+Qe2 c5 21. Rac1 cxd4 22. exd4 a5 23. Be1 a4 24. a3 Qb7 25. h4 Qb3+ 26. Kb1
+Rab8 27. h5 Qxa3 28. Bh4 Qb3 29. h6+ Kg8 30. f5 a3 31. Rc2 axb2 32. Rxb2
+Nxc3+ 33. Kc1 Nxe2+ 34. Rxe2 Rbc8+ 35. Kd2 Qc2+ 36. Ke3 Rc3+ 37. Kf2 Qxf5+
+38. Kg2 Qh5 0-1
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/SnLBgRhj"]
+[Date "2023.04.14"]
+[Round "-"]
+[White "ArturBK"]
+[Black "BLR4region"]
+[Result "0-1"]
+[WhiteElo "1743"]
+[BlackElo "1732"]
+[ECO "B01"]
+[TimeControl "180+2"]
+[UTCDate "2023.04.14"]
+[UTCTime "14:03:47"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "SnLBgRhj"]
+[WhiteRatingDiff "-19"]
+[BlackRatingDiff "+6"]
+
+1. e4 d5 2. exd5 e5 3. dxe6 Bxe6 4. Nf3 Qe7 5. Be2 Nc6 6. O-O O-O-O 7. d4
+a6 8. Be3 h6 9. c4 g5 10. h3 g4 11. hxg4 Bxg4 12. Nh2 h5 13. Bxg4+ hxg4 14.
+Qxg4+ Kb8 15. Bf4 Nf6 16. Qf3 Nxd4 17. Qe3 Ne4 18. Nc3 Nxc3 19. bxc3 Ne2+
+20. Kh1 Nxf4 21. Qxf4 Bh6 22. Qg3 Qf6 23. f4 Rdg8 24. Qf3 Bf8 25. Rae1 Qh4
+26. Re8+ Ka7 27. Qe3+ b6 28. Qg1 Bc5 0-1
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/LREDvFSY"]
+[Date "2023.04.13"]
+[Round "-"]
+[White "xq54"]
+[Black "ArturBK"]
+[Result "1-0"]
+[WhiteElo "1744"]
+[BlackElo "1764"]
+[ECO "B54"]
+[TimeControl "180+2"]
+[UTCDate "2023.04.13"]
+[UTCTime "17:32:37"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "LREDvFSY"]
+[WhiteRatingDiff "+5"]
+[BlackRatingDiff "-21"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nbd7 6. Bd3 a6 7. O-O Qc7
+8. Bf4 e5 9. Nd5 Nxd5 10. exd5 exf4 11. Re1+ Ne5 12. Nf3 Be7 13. Nxe5 dxe5
+14. Qh5 Bd7 15. Rxe5 g6 16. Qe2 Bb5 17. Re1 O-O 18. Rxe7 Qd6 19. Bxb5 axb5
+20. Qxb5 Rxa2 21. Qxb7 f3 22. Qc6 Qb4 23. d6 fxg2 24. d7 h5 25. Re8 h4 26.
+Rxf8+ Kxf8 27. d8=Q+ Kg7 28. Qcf6+ Kh6 29. Qdh8# 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/qOFgYcRm"]
+[Date "2023.04.10"]
+[Round "-"]
+[White "Koshmarek"]
+[Black "ArturBK"]
+[Result "1-0"]
+[WhiteElo "1769"]
+[BlackElo "1785"]
+[ECO "B21"]
+[TimeControl "180+2"]
+[UTCDate "2023.04.10"]
+[UTCTime "18:05:07"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "qOFgYcRm"]
+[WhiteRatingDiff "+6"]
+[BlackRatingDiff "-21"]
+
+1. e4 c5 2. d4 cxd4 3. c3 d6 4. cxd4 Nf6 5. Bb5+ Bd7 6. Bxd7+ Nbxd7 7. Nc3
+a6 8. Nf3 Qc7 9. O-O Rc8 10. Bf4 e6 11. Qd2 Be7 12. Rac1 Qb8 13. e5 dxe5
+14. Nxe5 Nxe5 15. Bxe5 Qa7 16. Qg5 O-O 17. Ne4 Rxc1 18. Rxc1 Nxe4 19. Qxg7#
+1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/IK3fv7jB"]
+[Date "2023.04.10"]
+[Round "-"]
+[White "ArturBK"]
+[Black "Mwandu03"]
+[Result "1-0"]
+[WhiteElo "1765"]
+[BlackElo "1734"]
+[ECO "C25"]
+[TimeControl "180+2"]
+[UTCDate "2023.04.10"]
+[UTCTime "17:57:11"]
+[Variant "Standard"]
+[Termination "Time forfeit"]
+[GameId "IK3fv7jB"]
+[WhiteRatingDiff "+20"]
+[BlackRatingDiff "-5"]
+
+1. e4 e5 2. Nc3 Bc5 3. Nf3 d6 4. d4 exd4 5. Nxd4 c6 6. Be3 Qf6 7. Bd3 Bxd4
+8. Bxd4 Qxd4 9. O-O Nf6 10. Nb5 Qb6 11. e5 cxb5 12. exf6 gxf6 13. Re1+ Be6
+14. Qh5 Ke7 15. Bf5 Qc5 16. Bxe6 fxe6 17. Qh3 f5 18. Qh4+ Kd7 19. Qf6 Nc6
+20. Qxe6+ Kc7 21. Qf7+ Kb6 22. a4 Raf8 23. Qb3 b4 24. a5+ Nxa5 25. Rxa5
+Qxa5 26. c4 Qc5 27. Re7 a5 28. Qf3 Qc6 29. Qe3+ Ka6 30. c5 f4 31. Qd4 Qxc5
+32. Qd2 f3 33. g3 Rc8 34. h4 Qc1+ 35. Qxc1 Rxc1+ 36. Kh2 h5 37. Rd7 Rd1 38.
+Rf7 Rd3 39. Rf5 b6 40. Kh3 d5 41. g4 hxg4+ 42. Kxg4 Rd4+ 43. Kxf3 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/QZSlFDc9"]
+[Date "2023.01.30"]
+[Round "-"]
+[White "Yuki910"]
+[Black "ArturBK"]
+[Result "1-0"]
+[WhiteElo "1713"]
+[BlackElo "1787"]
+[ECO "D10"]
+[TimeControl "180+2"]
+[UTCDate "2023.01.30"]
+[UTCTime "16:34:06"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "QZSlFDc9"]
+[WhiteRatingDiff "+32"]
+[BlackRatingDiff "-22"]
+
+1. d4 c6 2. c4 d5 3. Nc3 Bf5 4. Bf4 e6 5. Nf3 Bd6 6. e3 Nf6 7. Bd3 Bg6 8.
+O-O Bxf4 9. exf4 O-O 10. Qc2 Nbd7 11. Bxg6 hxg6 12. Ne5 Nh5 13. Ne2 Nxe5
+14. fxe5 Kh7 15. Rad1 Rh8 16. Rd3 Kg8 17. Rh3 Qg5 18. f4 Qg4 19. Rff3 Nxf4
+20. Rxh8+ Kxh8 21. Rxf4 Qg5 22. g3 Kg8 23. cxd5 exd5 24. Nc3 f6 25. e6 Kf8
+26. Qe2 Ke7 27. Na4 Rh8 28. Nc5 b6 29. Nd3 Rh5 30. Nf2 Qh6 31. Ng4 Qh8 32.
+a4 f5 33. Ne3 Kxe6 34. Ng4+ Kd7 35. Ne5+ Kc7 36. Nxg6 Qh7 37. Qe7+ Kc8 38.
+Qe6+ Kb7 39. Nh4 g5 40. Rxf5 gxh4 41. Rf7+ Qxf7 42. Qxf7+ Ka6 43. Qxh5 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/be5tjpBg"]
+[Date "2023.01.24"]
+[Round "-"]
+[White "ArturBK"]
+[Black "rasim1975"]
+[Result "0-1"]
+[WhiteElo "1809"]
+[BlackElo "1763"]
+[ECO "C30"]
+[TimeControl "180+2"]
+[UTCDate "2023.01.24"]
+[UTCTime "18:11:56"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "be5tjpBg"]
+[WhiteRatingDiff "-22"]
+[BlackRatingDiff "+7"]
+
+1. e4 e5 2. f4 d6 3. Nf3 Bg4 4. Bc4 Nc6 5. c3 Qf6 6. d3 O-O-O 7. O-O h5 8.
+Qa4 h4 9. h3 Bxf3 10. Rxf3 exf4 11. Rxf4 Qe7 12. Rxf7 Qe5 13. Bd5 Nf6 14.
+Bxc6 bxc6 15. Qa6+ Kb8 16. Qxc6 Qc5+ 17. Qxc5 dxc5 18. Bf4 Bd6 19. Bxd6
+cxd6 20. Rxg7 Nh5 21. Rg5 Nf4 22. Nd2 Nxd3 23. b3 Ne5 24. c4 Rdg8 25. Rxg8+
+Rxg8 26. Rf1 Kc7 27. Nf3 Nd3 28. Nxh4 Nb4 29. a3 Nc2 30. Rf7+ Kb6 31. a4
+Nd4 32. Nf5 Nxb3 33. Nxd6 Nd2 34. Rb7+ Kc6 35. Rb2 Nf3+ 36. Kf2 Nh4 37. Nf5
+Rxg2+ 38. Ke3 Nxf5+ 39. exf5 Rxb2 40. Kf4 Rh2 41. Kg4 Kd7 42. h4 Ke7 43.
+Kg5 Rg2+ 44. Kf4 Kf6 45. h5 Rh2 46. Kg4 Rg2+ 47. Kf3 Rg5 48. h6 Rxf5+ 49.
+Ke4 Rh5 50. h7 Rxh7 51. Kd5 Rc7 52. Kd6 Rb7 53. Kxc5 Ke7 54. a5 Kd7 55. a6
+Rb6 56. Kd5 Rxa6 57. c5 Rc6 58. Kc4 Ke6 59. Kb5 Kd5 60. Kb4 0-1
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/ZLYjne9o"]
+[Date "2022.12.22"]
+[Round "-"]
+[White "wpthdejong"]
+[Black "ArturBK"]
+[Result "1-0"]
+[WhiteElo "1920"]
+[BlackElo "1893"]
+[ECO "A40"]
+[TimeControl "180+2"]
+[UTCDate "2022.12.22"]
+[UTCTime "16:39:03"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "ZLYjne9o"]
+[WhiteRatingDiff "+5"]
+[BlackRatingDiff "-21"]
+
+1. d4 c6 2. Bf4 d5 3. e3 Bf5 4. Bd3 Bg6 5. Nf3 e6 6. O-O Bd6 7. Qe2 Nf6 8.
+Nbd2 Qc7 9. Bxd6 Qxd6 10. Ne5 Nbd7 11. Ndf3 Bh5 12. h3 Bxf3 13. Nxf3 O-O
+14. Rfe1 c5 15. c3 cxd4 16. exd4 a6 17. Ne5 Rac8 18. g4 Ne4 19. Bxe4 dxe4
+20. Qxe4 Nxe5 21. Qxe5 Qe7 22. d5 Rc5 23. Rad1 Qh4 24. Kg2 h6 25. Qd6 Rfc8
+26. dxe6 fxe6 27. Qxe6+ Kh8 28. Rd7 Rf8 29. Re2 h5 30. Qe7 Rg8 31. Qxh4 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/xqAiGjUj"]
+[Date "2022.12.22"]
+[Round "-"]
+[White "ArturBK"]
+[Black "PresidentFox"]
+[Result "1-0"]
+[WhiteElo "1870"]
+[BlackElo "1855"]
+[ECO "B02"]
+[TimeControl "180+2"]
+[UTCDate "2022.12.22"]
+[UTCTime "16:30:26"]
+[Variant "Standard"]
+[Termination "Time forfeit"]
+[GameId "xqAiGjUj"]
+[WhiteRatingDiff "+23"]
+[BlackRatingDiff "-7"]
+
+1. e4 Nf6 2. Nc3 d5 3. exd5 Nxd5 4. d4 Nxc3 5. bxc3 e5 6. f4 exd4 7. cxd4
+Bd6 8. Nf3 O-O 9. Be2 Qf6 10. O-O Nc6 11. Ne5 Bxe5 12. fxe5 Qd8 13. c3 Be6
+14. Bh5 Qh4 15. Qf3 Rad8 16. Ba3 Bd5 17. Qe2 Rfe8 18. g3 Qg5 19. Bf3 Bxf3
+20. Qxf3 Qg6 21. Rab1 b6 22. Rbe1 Na5 23. Re2 Nc4 24. Bc1 a5 25. Ref2 Rf8
+26. h4 h5 27. Rg2 Rde8 28. g4 hxg4 29. Rxg4 Qe6 30. h5 g6 31. Qg3 b5 32.
+hxg6 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/rnqWQ25o"]
+[Date "2022.12.22"]
+[Round "-"]
+[White "ArturBK"]
+[Black "homoliak"]
+[Result "1-0"]
+[WhiteElo "1840"]
+[BlackElo "1903"]
+[ECO "C36"]
+[TimeControl "180+2"]
+[UTCDate "2022.12.22"]
+[UTCTime "16:24:02"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "rnqWQ25o"]
+[WhiteRatingDiff "+30"]
+[BlackRatingDiff "-6"]
+
+1. e4 e5 2. f4 exf4 3. Nf3 d5 4. exd5 Nf6 5. d4 Nxd5 6. c4 Ne3 7. Bxe3 fxe3
+8. Qb3 Be7 9. Be2 O-O 10. O-O Re8 11. Qxe3 Bg5 12. Qxg5 Qxg5 13. Nxg5 Rxe2
+14. Rxf7 Rxb2 15. Rxc7 Bf5 16. Nc3 Nc6 17. Rf1 Nxd4 18. h3 Bg6 19. Nd5 Nc6
+20. Ne7+ Nxe7 21. Rxe7 Rxa2 22. Rxb7 a5 23. Rfb1 h6 24. Rb8+ Rxb8 25. Rxb8+
+1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/mJMAkW9M"]
+[Date "2022.12.22"]
+[Round "-"]
+[White "NinjaRP"]
+[Black "ArturBK"]
+[Result "0-1"]
+[WhiteElo "1788"]
+[BlackElo "1814"]
+[ECO "D10"]
+[TimeControl "180+2"]
+[UTCDate "2022.12.22"]
+[UTCTime "16:19:58"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "mJMAkW9M"]
+[WhiteRatingDiff "-5"]
+[BlackRatingDiff "+26"]
+
+1. d4 c6 2. c4 d5 3. Nc3 Bf5 4. Bf4 e6 5. e3 Nd7 6. c5 Ngf6 7. Nf3 Be7 8.
+Be2 O-O 9. h3 a5 10. a3 b6 11. b4 axb4 12. axb4 Rxa1 13. Qxa1 bxc5 14. bxc5
+Qa8 15. Qb2 Ne4 16. O-O Nxc3 17. Qxc3 Nf6 18. Nh4 Ne4 19. Qb3 Bxh4 20. g3
+Bxg3 21. Bxg3 Nd2 22. Qb6 Nxf1 23. Bxf1 f6 24. Bd6 Rd8 25. Bc7 Rc8 26. Ba6
+Rxc7 27. Qxc7 Qxa6 28. Qd8+ Kf7 29. Qd7+ Kg6 30. Qe8+ Kh6 31. Kg2 Be4+ 32.
+Kg3 Bf5 33. f3 Qf1 34. Qxc6 Qg1+ 35. Kf4 Qg5# 0-1
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/p6L4KwJJ"]
+[Date "2022.12.22"]
+[Round "-"]
+[White "mrzugzwang_76"]
+[Black "ArturBK"]
+[Result "0-1"]
+[WhiteElo "1830"]
+[BlackElo "1780"]
+[ECO "A40"]
+[TimeControl "180+2"]
+[UTCDate "2022.12.22"]
+[UTCTime "16:10:30"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "p6L4KwJJ"]
+[WhiteRatingDiff "-6"]
+[BlackRatingDiff "+34"]
+
+1. d4 c6 2. Bg5 d5 3. f3 Nf6 4. e3 e6 5. Bd3 Bb4+ 6. c3 Ba5 7. e4 Na6 8. e5
+h6 9. Bh4 g5 10. Bg3 Nh5 11. Bxa6 bxa6 12. Qa4 Qb6 13. b4 Nxg3 14. hxg3
+Bxb4 15. cxb4 Bd7 16. a3 Qxd4 17. Ne2 Qxa1 18. Kf2 Qxe5 19. Qxa6 Qc7 20.
+Qd3 Qb6+ 21. Kf1 c5 22. Nbc3 cxb4 23. axb4 Qxb4 24. g4 Rc8 25. Kf2 a5 26.
+Rb1 Qc4 27. Qd2 a4 28. Na2 Bb5 29. Nec3 a3 30. Rxb5 O-O 31. Rb1 d4 32. Ne4
+Qc2 33. Ke2 Qxd2+ 34. Kxd2 f5 35. Nd6 Rc5 36. Kd3 fxg4 37. fxg4 Rd5 38. Nc4
+Rf2 39. Nb4 Rb5 40. Nxa3 Rb8 41. Kxd4 Rf4+ 42. Kc3 Rxg4 43. Nac2 Rxg2 44.
+Rh1 Kg7 45. Kd4 Rg4+ 46. Ke5 Rgxb4 47. Ne3 R8b5+ 48. Kxe6 Re4+ 49. Kd6 Rxe3
+50. Rc1 Rb7 51. Kd5 Rf7 52. Kd4 Ref3 53. Re1 g4 54. Rg1 g3 55. Ke4 h5 56.
+Ke5 h4 0-1
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/T5WG92wO"]
+[Date "2022.10.14"]
+[Round "-"]
+[White "Bird83"]
+[Black "ArturBK"]
+[Result "1/2-1/2"]
+[WhiteElo "1784"]
+[BlackElo "1779"]
+[ECO "A02"]
+[TimeControl "180+2"]
+[UTCDate "2022.10.14"]
+[UTCTime "19:15:39"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "T5WG92wO"]
+[WhiteRatingDiff "-1"]
+[BlackRatingDiff "+1"]
+
+1. f4 c6 2. e4 d5 3. e5 Bf5 4. Nf3 e6 5. d4 c5 6. Bb5+ Nc6 7. c3 a6 8.
+Bxc6+ bxc6 9. O-O Ne7 10. Be3 Bg6 11. dxc5 Nf5 12. Bf2 Qa5 13. b4 Qc7 14.
+a4 a5 15. Nbd2 axb4 16. cxb4 Be7 17. g4 Nh6 18. h3 O-O 19. Nb3 Qd8 20. Nbd4
+Qc8 21. Nh4 Be4 22. f5 exf5 23. Nhxf5 Nxf5 24. gxf5 Bxf5 25. Nxf5 Qxf5 26.
+Qf3 Qg6+ 27. Kh1 Rfd8 28. Bd4 Ra7 29. e6 fxe6 30. Rg1 Qe4 31. Qxe4 dxe4 32.
+Bxg7 Kf7 33. Be5 Rd3 34. Rg7+ Ke8 35. Bd6 Rxh3+ 36. Kg2 Rh2+ 37. Kxh2 Bxd6+
+38. cxd6 Rxg7 39. Rd1 Rd7 40. Kg3 Kf7 41. Kf4 Kf6 42. b5 cxb5 43. axb5 e5+
+44. Kxe4 h5 45. b6 h4 46. Rd5 h3 47. Rxe5 h2 48. Rh5 Rxd6 49. Rxh2 Ke7 50.
+Rh7+ Kd8 51. Ke5 Rxb6 52. Rh8+ Kc7 53. Rh7+ Kc6 54. Rh6+ Kb5 55. Rxb6+ Kxb6
+1/2-1/2
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/k1qrnGHC"]
+[Date "2022.10.14"]
+[Round "-"]
+[White "ArturBK"]
+[Black "Bird83"]
+[Result "1-0"]
+[WhiteElo "1745"]
+[BlackElo "1790"]
+[ECO "C31"]
+[TimeControl "180+2"]
+[UTCDate "2022.10.14"]
+[UTCTime "19:12:35"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "k1qrnGHC"]
+[WhiteRatingDiff "+34"]
+[BlackRatingDiff "-6"]
+
+1. e4 e5 2. f4 d5 3. exd5 e4 4. Bc4 f5 5. Ne2 Nf6 6. O-O Bc5+ 7. Kh1 Ng4 8.
+Qe1 c6 9. Nec3 b5 10. Bb3 Qb6 11. d6 Nf2+ 12. Rxf2 Bxf2 13. Qe2 Nd7 14.
+Nxe4 fxe4 15. Qxe4+ 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/N0HBjn4r"]
+[Date "2022.10.14"]
+[Round "-"]
+[White "Bird83"]
+[Black "ArturBK"]
+[Result "0-1"]
+[WhiteElo "1796"]
+[BlackElo "1702"]
+[ECO "A02"]
+[TimeControl "180+2"]
+[UTCDate "2022.10.14"]
+[UTCTime "19:06:38"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "N0HBjn4r"]
+[WhiteRatingDiff "-6"]
+[BlackRatingDiff "+43"]
+
+1. f4 c6 2. e4 d5 3. e5 Bf5 4. Nf3 e6 5. d4 c5 6. c3 cxd4 7. Nxd4 Ne7 8.
+Nxf5 Nxf5 9. g3 Nc6 10. Bb5 Qb6 11. Bxc6+ bxc6 12. Qe2 Rd8 13. Nd2 d4 14.
+Nc4 Qc5 15. b4 Qe7 16. O-O h5 17. Qe4 Qc7 18. Na5 dxc3 19. Qxc6+ Qxc6 20.
+Nxc6 Rd7 21. b5 Bc5+ 22. Kh1 h4 23. g4 Ne3 24. Bxe3 Bxe3 25. Rad1 Rxd1 26.
+Rxd1 O-O 27. Ne7+ Kh7 28. f5 c2 0-1
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/tXltCNMr"]
+[Date "2018.09.03"]
+[Round "-"]
+[White "ArturBK"]
+[Black "hjuniorhs"]
+[Result "1/2-1/2"]
+[WhiteElo "1334"]
+[BlackElo "1298"]
+[ECO "A45"]
+[TimeControl "180+2"]
+[UTCDate "2018.09.03"]
+[UTCTime "23:19:22"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "tXltCNMr"]
+[WhiteRatingDiff "-1"]
+[BlackRatingDiff "+1"]
+
+1. d4 d5 2. Nc3 Nf6 3. Nf3 Nc6 4. Bf4 e6 5. e3 Bd6 6. Bg3 O-O 7. Bd3 e5 8.
+Nxe5 Nxe5 9. Bxe5 Re8 10. Bg3 Ne4 11. Bxe4 dxe4 12. Qd2 Bg4 13. h3 Bh5 14.
+Ne2 Bxe2 15. Qxe2 Bxg3 16. fxg3 Qf6 17. Rf1 Qg6 18. O-O-O Rad8 19. Qc4 Re7
+20. g4 h5 21. gxh5 Qxh5 22. Qb3 Red7 23. Qxb7 c5 24. Qxe4 cxd4 25. Rxd4 Qe2
+26. Rfd1 Kf8 27. b3 Re8 28. Qh7 Rxd4 29. Rxd4 Qxe3+ 30. Rd2 Qd4 31. Qh8+
+Ke7 32. Rxd4 Rxh8 33. Re4+ Kf6 34. c4 Kf5 35. Re2 g5 36. c5 Kf4 37. c6 Rc8
+38. Rc2 Ke5 39. b4 Kd6 40. b5 Kc7 41. a4 Kb6 42. Kd2 Ka5 43. Rc4 Rd8+ 44.
+Kc3 f5 45. Kb3 Rd2 46. c7 Rxg2 47. c8=Q Rg3+ 48. Rc3 Rxc3+ 49. Qxc3+ Kb6
+50. Qf6+ Ka5 51. Qxf5 a6 52. Qc5 axb5 53. axb5 g4 54. hxg4 1/2-1/2
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/XKORtAW6"]
+[Date "2018.09.03"]
+[Round "-"]
+[White "Leukothea"]
+[Black "ArturBK"]
+[Result "1-0"]
+[WhiteElo "1327"]
+[BlackElo "1345"]
+[ECO "C60"]
+[TimeControl "180+2"]
+[UTCDate "2018.09.03"]
+[UTCTime "22:59:35"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "XKORtAW6"]
+[WhiteRatingDiff "+12"]
+[BlackRatingDiff "-11"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nge7 4. O-O a6 5. Ba4 d6 6. h3 Bd7 7. d4 Ng6 8.
+Bg5 f6 9. Bh4 Nxh4 10. Nxh4 Nxd4 11. Qh5+ Ke7 12. Bxd7 Qxd7 13. Nf5+ Nxf5
+14. exf5 Qb5 15. b3 Kd7 16. Nc3 Qc5 17. Qf7+ Be7 18. Qe6+ Ke8 19. Nd5 Qb5
+20. Qxe7# 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/ZYDBgH7e"]
+[Date "2018.08.24"]
+[Round "-"]
+[White "for4yse7en"]
+[Black "ArturBK"]
+[Result "1-0"]
+[WhiteElo "1198"]
+[BlackElo "1277"]
+[ECO "C20"]
+[TimeControl "180+2"]
+[UTCDate "2018.08.24"]
+[UTCTime "21:09:19"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "ZYDBgH7e"]
+[WhiteRatingDiff "+14"]
+[BlackRatingDiff "-13"]
+
+1. e4 e5 2. d3 Nc6 3. Nc3 Nf6 4. Nf3 Bc5 5. Be3 d5 6. Bxc5 d4 7. Nd5 Nxd5
+8. exd5 Ne7 9. c4 f6 10. Be2 b6 11. Ba3 Nf5 12. O-O Nd6 13. Nh4 Bd7 14.
+Bh5+ g6 15. Bf3 Qe7 16. c5 bxc5 17. Bxc5 g5 18. Bh5+ Kd8 19. Nf3 g4 20. Nh4
+f5 21. Rc1 Qxh4 22. Bxd6 cxd6 23. Bf7 Rf8 24. Be6 Bxe6 25. dxe6 Ke7 26. Qb3
+f4 27. Qb7+ Kxe6 28. Rc6 g3 29. fxg3 fxg3 30. Rxf8 gxh2+ 31. Kh1 Rxf8 32.
+Qb3+ Kd7 33. Qb7+ Ke6 34. Qb3+ Kf5 35. Rxd6 Qe1+ 36. Kxh2 Rg8 37. Qf7+ Kg4
+38. Qxg8+ Kh4 39. Rh6# 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/JGH7HLzX"]
+[Date "2018.08.24"]
+[Round "-"]
+[White "ArturBK"]
+[Black "kingleer"]
+[Result "1-0"]
+[WhiteElo "1264"]
+[BlackElo "1328"]
+[ECO "A45"]
+[TimeControl "180+2"]
+[UTCDate "2018.08.24"]
+[UTCTime "15:13:35"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "JGH7HLzX"]
+[WhiteRatingDiff "+13"]
+[BlackRatingDiff "-12"]
+
+1. d4 Nf6 2. Nc3 e6 3. Nf3 Bb4 4. Bg5 O-O 5. Qd2 d5 6. e3 a6 7. a3 Ba5 8.
+b4 Bb6 9. a4 Nbd7 10. a5 Ba7 11. Na4 b6 12. axb6 cxb6 13. b5 a5 14. Bd3 Qc7
+15. c3 Bb7 16. Bc2 Rad8 17. Qd3 Rfe8 18. Bxf6 Nxf6 19. g4 Ne4 20. h4 e5 21.
+Nxe5 Rxe5 22. dxe5 Qxe5 23. O-O-O Qf6 24. f3 Qxf3 25. Rdf1 Qxg4 26. Rfg1
+Qh5 27. Bd1 Qh6 28. Bf3 Bb8 29. Bxe4 Bc7 30. Bxh7+ Qxh7 31. Qxh7+ Kxh7 32.
+h5 d4 33. cxd4 Bd6 34. Kd2 Bb4+ 35. Kd3 Bd5 36. Rh4 Rc8 37. Rg5 Bc4+ 38.
+Ke4 Bxb5 39. Nxb6 Re8+ 40. Re5 Bc6+ 41. Kf4 Rxe5 42. dxe5 a4 43. Nc4 a3 44.
+Nxa3 Bxa3 45. e4 Bc1+ 46. Kf3 Kh6 47. Kg4 Bxe4 48. Rh1 Bg5 49. Re1 Bd3 50.
+Rd1 Be4 51. Rd7 f6 52. e6 f5+ 53. Kg3 f4+ 54. Kf2 Kxh5 55. e7 Bg6 56. Rd5
+Kg4 57. Rd6 Kf5 58. Rxg6 Kxg6 59. e8=Q+ Kh7 60. Qh5+ 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/WJrkbefn"]
+[Date "2018.08.23"]
+[Round "-"]
+[White "griffster"]
+[Black "ArturBK"]
+[Result "1-0"]
+[WhiteElo "1133"]
+[BlackElo "1268"]
+[ECO "C46"]
+[TimeControl "180+2"]
+[UTCDate "2018.08.23"]
+[UTCTime "01:56:41"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "WJrkbefn"]
+[WhiteRatingDiff "+15"]
+[BlackRatingDiff "-14"]
+
+1. e4 e5 2. Nc3 Nc6 3. Nf3 Bc5 4. Bb5 d6 5. Bxc6+ bxc6 6. d4 Bb6 7. dxe5
+Ba6 8. Na4 dxe5 9. Qxd8+ Rxd8 10. Nxb6 cxb6 11. Nxe5 Ne7 12. c4 f6 13. Nf3
+Bxc4 14. b3 Bb5 15. Bd2 O-O 16. O-O-O Bd3 17. Bb4 Rfe8 18. Bxe7 Rxe7 19.
+Rhe1 Red7 20. e5 Bg6 21. exf6 gxf6 22. a4 Rd3 23. Nh4 Rc3+ 24. Kb2 Rxd1 25.
+Rxd1 Rc5 26. Nxg6 hxg6 27. Rd8+ Kf7 28. Rd7+ Ke6 29. Rxa7 Kd5 30. Ra6 Kd4
+31. Rxb6 Kd3 32. f4 Rc2+ 33. Ka3 Rxg2 34. h4 Rg4 35. Rxc6 Rxf4 36. Rd6+ Kc3
+37. Rc6+ Kd2 38. b4 g5 39. hxg5 fxg5 40. a5 g4 41. a6 g3 42. a7 Rf1 43.
+a8=Q Ra1+ 44. Kb3 Rxa8 45. Rg6 Rc8 46. Rxg3 Ke2 47. Ka4 Rb8 48. b5 Kf2 49.
+Rg7 Kf3 50. Ka5 Ke4 51. b6 Kd5 52. Rc7 Kd6 53. Ka6 Rxb6+ 54. Kxb6 Kd5 55.
+Rd7+ Ke4 56. Kc5 Kf4 57. Rd5 Ke3 58. Kc4 Kf3 59. Kd3 Kf4 60. Kd4 Kf3 61.
+Re5 Kf2 62. Re3 Kg2 63. Kd3 Kf2 64. Kd2 Kg2 65. Ke1 Kg1 66. Rg3+ Kh2 67.
+Kf2 Kh1 68. Rg1+ Kh2 69. Rg3 Kh1 70. Rh3# 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/9V9KJLQV"]
+[Date "2018.08.23"]
+[Round "-"]
+[White "ArturBK"]
+[Black "MSmica"]
+[Result "1-0"]
+[WhiteElo "1260"]
+[BlackElo "1193"]
+[ECO "D00"]
+[TimeControl "180+2"]
+[UTCDate "2018.08.23"]
+[UTCTime "01:55:56"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "9V9KJLQV"]
+[WhiteRatingDiff "+8"]
+[BlackRatingDiff "-9"]
+
+1. d4 d5 2. Nc3 e6 3. Nf3 Nf6 4. Bf4 Bb4 5. e3 Nbd7 6. a3 b6 7. axb4 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/bRGHmjP6"]
+[Date "2018.08.14"]
+[Round "-"]
+[White "ArturBK"]
+[Black "themichaely"]
+[Result "0-1"]
+[WhiteElo "1319"]
+[BlackElo "1317"]
+[ECO "D07"]
+[TimeControl "180+2"]
+[UTCDate "2018.08.14"]
+[UTCTime "03:54:12"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "bRGHmjP6"]
+[WhiteRatingDiff "-10"]
+[BlackRatingDiff "+11"]
+
+1. d4 d5 2. c4 Nf6 3. Nc3 dxc4 4. Nf3 Nc6 5. Bf4 g6 6. e3 Bg7 7. Bxc4 O-O
+8. O-O Bf5 9. Bd3 Be6 10. e4 Bg4 11. h3 Bc8 12. Qd2 b6 13. Bh6 Bb7 14. Bxg7
+Kxg7 15. e5 Nd5 16. Nxd5 Qxd5 17. Qf4 e6 18. Qf6+ Kg8 19. Nh4 Nxd4 20. Nf3
+Rfd8 21. Qh4 Nxf3+ 22. gxf3 0-1
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/wsI6ZnLF"]
+[Date "2018.08.14"]
+[Round "-"]
+[White "ArturBK"]
+[Black "vlarios0522"]
+[Result "0-1"]
+[WhiteElo "1329"]
+[BlackElo "1360"]
+[ECO "D20"]
+[TimeControl "180+2"]
+[UTCDate "2018.08.14"]
+[UTCTime "02:59:07"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "wsI6ZnLF"]
+[WhiteRatingDiff "-10"]
+[BlackRatingDiff "+10"]
+
+1. d4 d5 2. c4 dxc4 3. Nc3 Nf6 4. e4 Bg4 5. Nf3 Nbd7 6. h3 Bh5 7. Be3 e6 8.
+Bxc4 Be7 9. Qc2 Bg6 10. Qb3 Nb6 11. Bd3 c5 12. Ne5 cxd4 13. Nxg6 hxg6 14.
+Qb5+ Kf8 15. O-O-O dxe3 16. Be2 Qc7 17. fxe3 Rc8 18. Kb1 Nxe4 19. Nxe4 Qc2+
+20. Ka1 Rh4 21. Bf3 Rh5 22. Qb3 Qxb3 23. axb3 Rc2 24. Bxh5 gxh5 25. Nd2 Bf6
+26. Kb1 Rxb2+ 27. Kc1 Bc3 28. Ne4 Rxg2 29. Nxc3 Ke7 30. Nb5 a6 31. Nd4 Nd5
+32. Rdg1 Rf2 33. Rxg7 Nxe3 34. Rhg1 Rh2 35. R1g3 Nf5 36. R3g6 Nxg7 37. Rxg7
+Rxh3 38. b4 Rd3 39. Kc2 Rxd4 40. Rh7 Rh4 0-1
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/2Ogi3xju"]
+[Date "2018.08.06"]
+[Round "-"]
+[White "ArturBK"]
+[Black "fernandozaki"]
+[Result "1-0"]
+[WhiteElo "1290"]
+[BlackElo "1063"]
+[ECO "D07"]
+[TimeControl "180+2"]
+[UTCDate "2018.08.06"]
+[UTCTime "20:14:02"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "2Ogi3xju"]
+[WhiteRatingDiff "+5"]
+[BlackRatingDiff "-15"]
+
+1. d4 d5 2. c4 Nc6 3. Nc3 e6 4. Nf3 Be7 5. Bf4 Nh6 6. e3 Bb4 7. a3 Ba5 8.
+b4 Bb6 9. c5 Bxc5 10. bxc5 O-O 11. Bxh6 gxh6 12. Bd3 Na5 13. O-O Rb8 14.
+Qc2 b5 15. Bxh7+ Kg7 16. Bd3 Ba6 17. Qe2 b4 18. axb4 Bxd3 19. Qxd3 Rxb4 20.
+e4 dxe4 21. Qxe4 f5 22. Qe5+ Kf7 23. Rxa5 c6 24. Rxa7+ Kg8 25. Qg7# 1-0
+
+[Event "rated blitz game"]
+[Site "https://lichess.org/cMOaeQj4"]
+[Date "2017.12.07"]
+[Round "-"]
+[White "vaneks"]
+[Black "ArturBK"]
+[Result "1-0"]
+[WhiteElo "1339"]
+[BlackElo "1329"]
+[ECO "C50"]
+[TimeControl "180+2"]
+[UTCDate "2017.12.07"]
+[UTCTime "02:18:41"]
+[Variant "Standard"]
+[Termination "Normal"]
+[GameId "cMOaeQj4"]
+[WhiteRatingDiff "+12"]
+[BlackRatingDiff "-10"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bb4 4. a3 Ba5 5. b4 Bb6 6. Nc3 h6 7. Na4 d6 8.
+Nxb6 axb6 9. O-O Nf6 10. d3 Be6 11. Bxe6 fxe6 12. Bb2 O-O 13. Nh4 Qd7 14.
+Ng6 Rf7 15. d4 exd4 16. Bxd4 Nxd4 17. Qxd4 e5 18. Qe3 Ng4 19. Qb3 Kh7 20.
+h3 Kxg6 21. hxg4 Rf4 22. f3 h5 23. gxh5+ Kxh5 24. Kf2 Kg6 25. Rh1 Rg8 26.
+Qxg8 c5 27. Qh7+ Kf7 28. Rh5 Qa4 29. Rf5+ Rxf5 30. Qxf5+ Kg8 31. Qc8+ Kh7
+32. Rh1+ Kg6 33. Qf5# 1-0
+

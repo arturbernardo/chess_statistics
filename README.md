@@ -1,5 +1,6 @@
 TODO:
-- Board original position cp must be accounted for? 
+- Do not evaluate book moves.
+- Board original position cp must be accounted for? (NO, DONE)
 - Add elo of the players to the analysis csv.
 - Analyse only the movements of the user in question. It is currently evaluating all the movements of the game.
 - .out is not showing the cp. But running in the terminal shows all the depths and cps. Some stdin stdout magic need to be solved. (DONE)
@@ -9,6 +10,8 @@ TODO:
 - exec all the pipeline when machine starts
 - outputs with the status of the process. (DONE)
 - Analysis based on knowledge from here https://drive.google.com/file/d/11IokKgTVSXdpYEzAuyViIleSZ_2wl0ag/view
+- use api? 
+https://lichess.org/api/games/user/ArturBK?color=white&rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&max=100&since=1583031600000&until=1585710000000&perfType=blitz
 
 # Stack result
 aws cloudformation describe-stacks --stack-name chess-analysis
@@ -67,6 +70,9 @@ pgn-extract -Wlalg --event "Rated Bullet" input.pgn > bullet.pgn
 versao 15
 touch criteria.txt
 echo 'Event "Rated Blitz"' > criteria.txt
+OR
+echo 'TimeControl "180+2""' > criteria.txt
+
 pgn-extract --tagsubstr -tcriteria.txt -o blitz.pgn input.pgn
 
 or
