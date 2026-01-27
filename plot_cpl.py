@@ -17,5 +17,5 @@ plt.ylabel("Number of moves")
 plt.title("CPL distribution")
 
 plt.tight_layout()
-plt.savefig("server/cpl_distribution.png", dpi=150)
+plt.savefig("cpl_distribution.png", dpi=150)
 plt.close()
