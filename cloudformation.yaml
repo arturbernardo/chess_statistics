@@ -19,16 +19,23 @@ Resources:
   ChessSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Acesso SSH e Jupyter
+      GroupDescription: Acesso SSH, Jupyter e HTTP simples
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
+
+        # - IpProtocol: tcp
+        #   FromPort: 8888
+        #   ToPort: 8888
+        #   CidrIp: 0.0.0.0/0
+
         - IpProtocol: tcp
-          FromPort: 8888
-          ToPort: 8888
+          FromPort: 8000
+          ToPort: 8000
           CidrIp: 0.0.0.0/0
+
 
   ChessInstance:
     Type: AWS::EC2::Instance
@@ -47,6 +54,7 @@ Resources:
         Fn::Base64: |
           #!/bin/bash
           set -eux
+
 
           apt-get update
           apt-get upgrade -y
@@ -80,46 +88,67 @@ Resources:
           # Progress bar
           pip3 install tqdm
 
-          # Ambiente Python do ubuntu
-          sudo -u ubuntu python3 -m venv /home/ubuntu/venv
-          sudo -u ubuntu /home/ubuntu/venv/bin/pip install --upgrade pip
-          sudo -u ubuntu /home/ubuntu/venv/bin/pip install \
-            jupyterlab notebook python-chess
-
-          # Jupyter dir
-          mkdir -p /home/ubuntu/jupyter
-          chown -R ubuntu:ubuntu /home/ubuntu/jupyter
-
-          # Config Jupyter
-          sudo -u ubuntu /home/ubuntu/venv/bin/jupyter lab --generate-config
-          CONFIG=/home/ubuntu/.jupyter/jupyter_lab_config.py
-
-          cat >> $CONFIG <<EOF
-          c.ServerApp.ip = '0.0.0.0'
-          c.ServerApp.open_browser = False
-          c.ServerApp.port = 8888
-          c.ServerApp.allow_root = False
-          EOF
-
-          # Service
-          cat <<EOF > /etc/systemd/system/jupyter.service
+          # ===== Python HTTP Server (8000) via systemd =====
+          cat <<EOF >/etc/systemd/system/http8000.service
           [Unit]
-          Description=Jupyter Lab
+          Description=Python HTTP Server 8000
           After=network.target
 
           [Service]
-          Type=simple
-          User=ubuntu
-          ExecStart=/home/ubuntu/venv/bin/jupyter lab --notebook-dir=/home/ubuntu/jupyter
+          ExecStart=/usr/bin/python3 -m http.server 8000
+          WorkingDirectory=/home/ubuntu/chess_statistics
           Restart=always
+          User=ubuntu
 
           [Install]
           WantedBy=multi-user.target
           EOF
 
+          systemctl daemon-reexec
           systemctl daemon-reload
-          systemctl enable jupyter
-          systemctl start jupyter
+          systemctl enable http8000
+          systemctl start http8000
+
+          # # Ambiente Python do ubuntu
+          # sudo -u ubuntu python3 -m venv /home/ubuntu/venv
+          # sudo -u ubuntu /home/ubuntu/venv/bin/pip install --upgrade pip
+          # sudo -u ubuntu /home/ubuntu/venv/bin/pip install \
+          #   jupyterlab notebook python-chess
+
+          # # Jupyter dir
+          # mkdir -p /home/ubuntu/jupyter
+          # chown -R ubuntu:ubuntu /home/ubuntu/jupyter
+
+          # # Config Jupyter
+          # sudo -u ubuntu /home/ubuntu/venv/bin/jupyter lab --generate-config
+          # CONFIG=/home/ubuntu/.jupyter/jupyter_lab_config.py
+
+          # cat >> $CONFIG <<EOF
+          # c.ServerApp.ip = '0.0.0.0'
+          # c.ServerApp.open_browser = False
+          # c.ServerApp.port = 8888
+          # c.ServerApp.allow_root = False
+          # EOF
+
+          # # Service
+          # cat <<EOF > /etc/systemd/system/jupyter.service
+          # [Unit]
+          # Description=Jupyter Lab
+          # After=network.target
+
+          # [Service]
+          # Type=simple
+          # User=ubuntu
+          # ExecStart=/home/ubuntu/venv/bin/jupyter lab --notebook-dir=/home/ubuntu/jupyter
+          # Restart=always
+
+          # [Install]
+          # WantedBy=multi-user.target
+          # EOF
+
+          # systemctl daemon-reload
+          # systemctl enable jupyter
+          # systemctl start jupyter
 
 
 Outputs:

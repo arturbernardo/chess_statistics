@@ -1,5 +1,6 @@
 TODO:
-- Do not evaluate book moves.
+- Do not evaluate teorical openings.
+https://komodochess.com/pub/komodo_book.zip
 - Board original position cp must be accounted for? (NO, DONE)
 - Add elo of the players to the analysis csv.
 - Analyse only the movements of the user in question. It is currently evaluating all the movements of the game.
@@ -12,6 +13,7 @@ TODO:
 - Analysis based on knowledge from here https://drive.google.com/file/d/11IokKgTVSXdpYEzAuyViIleSZ_2wl0ag/view
 - use api? 
 https://lichess.org/api/games/user/ArturBK?color=white&rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&max=100&since=1583031600000&until=1585710000000&perfType=blitz
+
 
 # Stack result
 aws cloudformation describe-stacks --stack-name chess-analysis
