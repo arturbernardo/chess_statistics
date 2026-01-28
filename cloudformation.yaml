@@ -1,10 +1,9 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: EC2 para analise de xadrez com Stockfish + Jupyter
+Description: EC2 para analise de xadrez com Stockfish
 
 Parameters:
   KeyName:
     Type: AWS::EC2::KeyPair::KeyName
-    Description: KeyPair para acesso SSH
 
   InstanceType:
     Type: String
@@ -13,29 +12,42 @@ Parameters:
       - c7a.2xlarge
       - c7a.4xlarge
       - c6i.4xlarge
-    Description: Tipo da instância
+
+  HttpPort:
+    Type: Number
+    Default: 8000
+
+  GameUser:
+    Type: String
+    Default: ArturBK
+
+  GameType:
+    Type: String
+    Default: blitz
+
+  Start:
+    Type: Number
+    Description: Epoch millis (obrigatório)
+
+  End:
+    Type: Number
+    Description: Epoch millis (obrigatório)
 
 Resources:
   ChessSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Acesso SSH, Jupyter e HTTP simples
+      GroupDescription: Acesso SSH e HTTP
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
 
-        # - IpProtocol: tcp
-        #   FromPort: 8888
-        #   ToPort: 8888
-        #   CidrIp: 0.0.0.0/0
-
         - IpProtocol: tcp
-          FromPort: 8000
-          ToPort: 8000
+          FromPort: !Ref HttpPort
+          ToPort: !Ref HttpPort
           CidrIp: 0.0.0.0/0
-
 
   ChessInstance:
     Type: AWS::EC2::Instance
@@ -44,112 +56,105 @@ Resources:
       KeyName: !Ref KeyName
       SecurityGroups:
         - !Ref ChessSecurityGroup
-      ImageId: ami-0c7217cdde317cfec # Ubuntu 22.04 LTS (ajuste por região)
+      ImageId: ami-0c7217cdde317cfec
       BlockDeviceMappings:
         - DeviceName: /dev/sda1
           Ebs:
             VolumeSize: 50
             VolumeType: gp3
       UserData:
-        Fn::Base64: |
+        Fn::Base64: !Sub |
           #!/bin/bash
-          set -eux
-
+          set -ex
 
           apt-get update
           apt-get upgrade -y
 
-          # Repos
-          apt-get install -y software-properties-common
-          add-apt-repository universe
-          apt-get update
-
-          # Dependências
           apt-get install -y \
             python3 \
             python3-pip \
-            python3-venv \
             stockfish \
             git \
+            curl \
             htop \
             parallel \
             pgn-extract
 
-          # Repo
+          pip3 install chess pandas matplotlib tqdm
+
           sudo -u ubuntu git clone https://github.com/arturbernardo/chess_statistics.git \
             /home/ubuntu/chess_statistics
 
-          # chmod project
-          chmod -Rf 777 /home/ubuntu/chess_statistics
+          chown -R ubuntu:ubuntu /home/ubuntu/chess_statistics
 
-          #Python chess 
-          pip3 install chess
-
-          # Progress bar
-          pip3 install tqdm
-
-          # ===== Python HTTP Server (8000) via systemd =====
+          # ================= HTTP SERVER =================
           cat <<EOF >/etc/systemd/system/http8000.service
           [Unit]
-          Description=Python HTTP Server 8000
+          Description=Python HTTP Server
           After=network.target
 
           [Service]
-          ExecStart=/usr/bin/python3 -m http.server 8000
-          WorkingDirectory=/home/ubuntu/chess_statistics
-          Restart=always
           User=ubuntu
+          WorkingDirectory=/home/ubuntu/chess_statistics/server
+          ExecStart=/usr/bin/python3 -m http.server ${HttpPort}
+          Restart=always
 
           [Install]
           WantedBy=multi-user.target
           EOF
 
+          # ================= DOWNLOAD SERVICE =================
+          cat <<EOF >/etc/systemd/system/lichess-download.service
+          [Unit]
+          Description=Download games from Lichess
+          After=network.target
+
+          [Service]
+          Type=oneshot
+          User=ubuntu
+          Environment=LICHESS_USER=${GameUser}
+          Environment=PERF_TYPE=${GameType}
+          Environment=SINCE=${Start}
+          Environment=UNTIL=${End}
+
+          ExecStart=/bin/bash -c '\
+            URL="https://lichess.org/api/games/user/$$LICHESS_USER?rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&since=$$SINCE&until=$$UNTIL&perfType=$$PERF_TYPE" && \
+            curl -L -H "Accept: application/x-chess-pgn" "$$URL" -o /home/ubuntu/games.pgn \
+          '
+          EOF
+
+          # ================= ANALYSIS SERVICE =================
+          cat <<EOF >/etc/systemd/system/chess-analysis.service
+          [Unit]
+          Description=Chess analysis
+          After=lichess-download.service
+          Requires=lichess-download.service
+
+          [Service]
+          Type=oneshot
+          User=ubuntu
+          WorkingDirectory=/home/ubuntu/chess_statistics
+
+          ExecStart=/bin/bash -c '\
+            python3 pgn_to_fen.py /home/ubuntu/games.pgn \
+              | python3 eval.py \
+              | { read -r header; echo "$header"; sort -t, -k1,1n -k2,2n; } \
+              | python3 cpl.py \
+              > analysis.csv && \
+            python3 plot_cpl.py \
+          '
+          EOF
+
           systemctl daemon-reexec
           systemctl daemon-reload
+
           systemctl enable http8000
+          systemctl enable lichess-download
+          systemctl enable chess-analysis
+
           systemctl start http8000
-
-          # # Ambiente Python do ubuntu
-          # sudo -u ubuntu python3 -m venv /home/ubuntu/venv
-          # sudo -u ubuntu /home/ubuntu/venv/bin/pip install --upgrade pip
-          # sudo -u ubuntu /home/ubuntu/venv/bin/pip install \
-          #   jupyterlab notebook python-chess
-
-          # # Jupyter dir
-          # mkdir -p /home/ubuntu/jupyter
-          # chown -R ubuntu:ubuntu /home/ubuntu/jupyter
-
-          # # Config Jupyter
-          # sudo -u ubuntu /home/ubuntu/venv/bin/jupyter lab --generate-config
-          # CONFIG=/home/ubuntu/.jupyter/jupyter_lab_config.py
-
-          # cat >> $CONFIG <<EOF
-          # c.ServerApp.ip = '0.0.0.0'
-          # c.ServerApp.open_browser = False
-          # c.ServerApp.port = 8888
-          # c.ServerApp.allow_root = False
-          # EOF
-
-          # # Service
-          # cat <<EOF > /etc/systemd/system/jupyter.service
-          # [Unit]
-          # Description=Jupyter Lab
-          # After=network.target
-
-          # [Service]
-          # Type=simple
-          # User=ubuntu
-          # ExecStart=/home/ubuntu/venv/bin/jupyter lab --notebook-dir=/home/ubuntu/jupyter
-          # Restart=always
-
-          # [Install]
-          # WantedBy=multi-user.target
-          # EOF
-
-          # systemctl daemon-reload
-          # systemctl enable jupyter
-          # systemctl start jupyter
-
+          systemctl start lichess-download
+          systemctl start chess-analysis
 
 Outputs:
   PublicIP:

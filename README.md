@@ -1,6 +1,7 @@
 TODO:
 - Do not evaluate teorical openings.
 https://komodochess.com/pub/komodo_book.zip
+- Use parameters to download games from player
 - Board original position cp must be accounted for? (NO, DONE)
 - Add elo of the players to the analysis csv.
 - Analyse only the movements of the user in question. It is currently evaluating all the movements of the game.
@@ -12,7 +13,14 @@ https://komodochess.com/pub/komodo_book.zip
 - outputs with the status of the process. (DONE)
 - Analysis based on knowledge from here https://drive.google.com/file/d/11IokKgTVSXdpYEzAuyViIleSZ_2wl0ag/view
 - use api? 
-https://lichess.org/api/games/user/ArturBK?color=white&rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&max=100&since=1583031600000&until=1585710000000&perfType=blitz
+https://lichess.org/api/games/user/ArturBK?rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&since=1767236400000&until=1770001200000&perfType=blitz
+
+log console browser
+rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&since=1767236400000&until=1770001200000&perfType=blitz
+
+
+#Run stack
+./bash.sh up 8000 c7a.2xlarge blitz ArturBK 100 1767236400000 1770001200000
 
 
 # Stack result

@@ -1,14 +1,32 @@
 #!/bin/bash
+set -e
+
+STACK_NAME=chess-analysis
+TEMPLATE=cloudformation.yaml
 
 case "$1" in
   up)
-    aws cloudformation create-stack \
-      --stack-name chess-analysis \
-      --template-body file://cloudformation.yaml \
-      --parameters ParameterKey=KeyName,ParameterValue=n8n
+    aws cloudformation deploy \
+      --stack-name "$STACK_NAME" \
+      --template-file "$TEMPLATE" \
+      --parameter-overrides \
+        KeyName=n8n \
+        HttpPort="$2" \
+        InstanceType="$3" \
+        GameType="$4" \
+        User="$5" \
+        SizeLimit="$6" \
+        Start="$7" \
+        End="$8"
     ;;
   down)
     aws cloudformation delete-stack \
-      --stack-name chess-analysis
+      --stack-name "$STACK_NAME"
+    ;;
+  *)
+    echo "Uso:"
+    echo "  $0 up <httpPort> <instanceType> <gameType> <user> <sizeLimit> <start> <end>"
+    echo "  $0 down"
+    exit 1
     ;;
 esac
