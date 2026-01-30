@@ -21,6 +21,10 @@ Parameters:
     Type: String
     Default: ArturBK
 
+  SizeLimit:
+    Type: Number
+    Default: 100
+
   GameType:
     Type: String
     Default: blitz
@@ -62,10 +66,11 @@ Resources:
           Ebs:
             VolumeSize: 50
             VolumeType: gp3
+
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
-          set -ex
+          set -e
 
           apt-get update
           apt-get upgrade -y
@@ -82,13 +87,29 @@ Resources:
 
           pip3 install chess pandas matplotlib tqdm
 
-          sudo -u ubuntu git clone https://github.com/arturbernardo/chess_statistics.git \
+          git clone https://github.com/arturbernardo/chess_statistics.git \
             /home/ubuntu/chess_statistics
 
           chown -R ubuntu:ubuntu /home/ubuntu/chess_statistics
 
+          # ================= DOWNLOAD SCRIPT =================
+          cat >/usr/local/bin/lichess-download.sh <<'EOF'
+          #!/usr/bin/env bash
+          set -e
+
+          URL="https://lichess.org/api/games/user/${GameUser}?rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&max=${SizeLimit}&since=${Start}&until=${End}&perfType=${GameType}"
+
+          echo "Downloading: $URL"
+
+          curl -fL -H "Accept: application/x-chess-pgn" \
+            "$URL" \
+            -o /home/ubuntu/games.pgn
+          EOF
+
+          chmod +x /usr/local/bin/lichess-download.sh
+
           # ================= HTTP SERVER =================
-          cat <<EOF >/etc/systemd/system/http8000.service
+          cat >/etc/systemd/system/http8000.service <<EOF
           [Unit]
           Description=Python HTTP Server
           After=network.target
@@ -104,54 +125,41 @@ Resources:
           EOF
 
           # ================= DOWNLOAD SERVICE =================
-          cat <<EOF >/etc/systemd/system/lichess-download.service
+          cat >/etc/systemd/system/lichess-download.service <<EOF
           [Unit]
           Description=Download games from Lichess
-          After=network.target
+          After=network-online.target
+          Wants=network-online.target
 
           [Service]
           Type=oneshot
           User=ubuntu
-          Environment=LICHESS_USER=${GameUser}
-          Environment=PERF_TYPE=${GameType}
-          Environment=SINCE=${Start}
-          Environment=UNTIL=${End}
+          ExecStart=/bin/bash -c 'chown ubuntu:ubuntu /home/ubuntu/games.pgn || true; exec /usr/local/bin/lichess-download.sh'
 
-          ExecStart=/bin/bash -c '\
-            URL="https://lichess.org/api/games/user/$$LICHESS_USER?rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&since=$$SINCE&until=$$UNTIL&perfType=$$PERF_TYPE" && \
-            curl -L -H "Accept: application/x-chess-pgn" "$$URL" -o /home/ubuntu/games.pgn \
-          '
+          [Install]
+          WantedBy=multi-user.target
           EOF
 
           # ================= ANALYSIS SERVICE =================
-          cat <<EOF >/etc/systemd/system/chess-analysis.service
+          cat >/etc/systemd/system/chess-analysis.service <<EOF
           [Unit]
           Description=Chess analysis
           After=lichess-download.service
           Requires=lichess-download.service
+          ConditionPathExists=/home/ubuntu/games.pgn
 
           [Service]
           Type=oneshot
           User=ubuntu
           WorkingDirectory=/home/ubuntu/chess_statistics
+          ExecStart=/bin/bash -c '/usr/bin/python3 pgn_to_fen.py /home/ubuntu/games.pgn | /usr/bin/python3 eval.py | { read -r header; echo "$header"; sort -t, -k1,1n -k2,2n; } | /usr/bin/python3 cpl.py > analysis.csv && /usr/bin/python3 plot_cpl.py'
 
-          ExecStart=/bin/bash -c '\
-            python3 pgn_to_fen.py /home/ubuntu/games.pgn \
-              | python3 eval.py \
-              | { read -r header; echo "$header"; sort -t, -k1,1n -k2,2n; } \
-              | python3 cpl.py \
-              > analysis.csv && \
-            python3 plot_cpl.py \
-          '
+          [Install]
+          WantedBy=multi-user.target
           EOF
 
-          systemctl daemon-reexec
           systemctl daemon-reload
-
-          systemctl enable http8000
-          systemctl enable lichess-download
-          systemctl enable chess-analysis
-
+          systemctl enable http8000 lichess-download chess-analysis
           systemctl start http8000
           systemctl start lichess-download
           systemctl start chess-analysis

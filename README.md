@@ -1,3 +1,16 @@
+
+Jan 30 20:46:47 ip-172-31-8-172 systemd[1]: Starting Chess analysis...
+Jan 30 20:48:19 ip-172-31-8-172 bash[20721]: [15.5K blob data]
+Jan 30 20:48:19 ip-172-31-8-172 bash[20723]: Traceback (most recent call last):
+Jan 30 20:48:19 ip-172-31-8-172 bash[20723]:   File "/home/ubuntu/chess_statistics/cpl.py", line 14, in <module>
+Jan 30 20:48:19 ip-172-31-8-172 bash[20723]:     move = int(row["move"])
+Jan 30 20:48:19 ip-172-31-8-172 bash[20723]: KeyError: 'move'
+Jan 30 20:48:19 ip-172-31-8-172 systemd[1]: chess-analysis.service: Main process exited, code=exited, status=1/FAILURE
+Jan 30 20:48:19 ip-172-31-8-172 systemd[1]: chess-analysis.service: Failed with result 'exit-code'.
+Jan 30 20:48:19 ip-172-31-8-172 systemd[1]: Failed to start Chess analysis.
+Jan 30 20:48:19 ip-172-31-8-172 systemd[1]: chess-analysis.service: Consumed 10min 29.864s CPU time.
+
+
 TODO:
 - Do not evaluate teorical openings.
 https://komodochess.com/pub/komodo_book.zip
@@ -13,11 +26,29 @@ https://komodochess.com/pub/komodo_book.zip
 - outputs with the status of the process. (DONE)
 - Analysis based on knowledge from here https://drive.google.com/file/d/11IokKgTVSXdpYEzAuyViIleSZ_2wl0ag/view
 - use api? 
-https://lichess.org/api/games/user/ArturBK?rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&since=1767236400000&until=1770001200000&perfType=blitz
+https://lichess.org/api/games/user/ArturBK?rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&max=100&since=1767236400000&until=1770001200000&perfType=blitz
 
 log console browser
 rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&since=1767236400000&until=1770001200000&perfType=blitz
 
+
+curl -L -H "Accept: application/x-chess-pgn" --url https://lichess.org/api/games/user/ArturBK?rated=true&tags=true&clocks=false&evals=false&opening=false&literate=false&max=100&since=1767236400000&until=1770001200000&perfType=blitz
+
+
+
+  aws cloudformation create-change-set \
+  --stack-name dryrun-test \
+  --change-set-name validate-only \
+  --template-body file://cloudformation.yaml \
+  --parameters \
+    ParameterKey=KeyName,ParameterValue=dummy \
+    ParameterKey=Start,ParameterValue=1767236400000 \
+    ParameterKey=End,ParameterValue=1770001200000 \
+  --change-set-type CREATE
+
+  aws cloudformation describe-change-set \
+  --stack-name dryrun-test \
+  --change-set-name validate-only
 
 #Run stack
 ./bash.sh up 8000 c7a.2xlarge blitz ArturBK 100 1767236400000 1770001200000
