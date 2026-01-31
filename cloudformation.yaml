@@ -21,6 +21,10 @@ Parameters:
     Type: String
     Default: ArturBK
 
+  GameUserLower:
+    Type: String
+    Default: arturbk
+
   SizeLimit:
     Type: Number
     Default: 100
@@ -53,11 +57,43 @@ Resources:
           ToPort: !Ref HttpPort
           CidrIp: 0.0.0.0/0
 
+  ChessAnalysisBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub chess-analysis-${GameUserLower}-${AWS::AccountId}
+
+  ChessInstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: S3UploadAnalysis
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                Resource: !Sub arn:aws:s3:::chess-analysis-${GameUserLower}-${AWS::AccountId}/*
+
+  ChessInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref ChessInstanceRole
+
   ChessInstance:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: !Ref InstanceType
       KeyName: !Ref KeyName
+      IamInstanceProfile: !Ref ChessInstanceProfile
       SecurityGroups:
         - !Ref ChessSecurityGroup
       ImageId: ami-0c7217cdde317cfec
@@ -83,7 +119,8 @@ Resources:
             curl \
             htop \
             parallel \
-            pgn-extract
+            pgn-extract \
+            awscli
 
           pip3 install chess pandas matplotlib tqdm
 
@@ -165,6 +202,10 @@ Resources:
           /usr/bin/python3 $BASE/cpl.py < "$STEP3" > "$OUT"
 
           /usr/bin/python3 $BASE/plot_cpl.py "$OUT"
+
+          BUCKET="chess-analysis-${GameUserLower}-${AWS::AccountId}"
+
+          aws s3 cp "$OUT" "s3://$BUCKET/analysis.csv"
           EOF
 
           chmod +x /usr/local/bin/run-chess-analysis.sh

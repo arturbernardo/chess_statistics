@@ -9,15 +9,17 @@ case "$1" in
     aws cloudformation deploy \
       --stack-name "$STACK_NAME" \
       --template-file "$TEMPLATE" \
+      --capabilities CAPABILITY_IAM \
       --parameter-overrides \
         KeyName=n8n \
         HttpPort="$2" \
         InstanceType="$3" \
         GameType="$4" \
-        User="$5" \
+        GameUser="$5" \
         SizeLimit="$6" \
         Start="$7" \
-        End="$8"
+        End="$8" \
+        GameUserLower=$(echo $5 | tr '[:upper:]' '[:lower:]')
     ;;
   down)
     aws cloudformation delete-stack \

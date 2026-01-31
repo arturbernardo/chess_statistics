@@ -12,6 +12,7 @@ Jan 30 20:48:19 ip-172-31-8-172 systemd[1]: chess-analysis.service: Consumed 10m
 
 
 TODO:
+- Separate templated. Validate s3 / AIM / SG demora. !!!!!
 - Do not evaluate teorical openings.
 https://komodochess.com/pub/komodo_book.zip
 - Use parameters to download games from player
