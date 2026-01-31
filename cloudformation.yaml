@@ -140,6 +140,36 @@ Resources:
           WantedBy=multi-user.target
           EOF
 
+          # ================= ANALYSIS SCRIPT =================
+          cat >/usr/local/bin/run-chess-analysis.sh <<'EOF'
+          #!/usr/bin/env bash
+          set -euo pipefail
+
+          BASE=/home/ubuntu/chess_statistics
+          INPUT=/home/ubuntu/games.pgn
+
+          STEP1=$BASE/01_pgn.csv
+          STEP2=$BASE/02_eval.csv
+          STEP3=$BASE/03_sorted.csv
+          OUT=$BASE/analysis.csv
+
+          /usr/bin/python3 $BASE/pgn_to_fen.py "$INPUT" > "$STEP1"
+
+          /usr/bin/python3 $BASE/eval.py < "$STEP1" > "$STEP2"
+
+          {
+            head -n 1 "$STEP2"
+            tail -n +2 "$STEP2" | sort -t, -k1,1n -k2,2n
+          } > "$STEP3"
+
+          /usr/bin/python3 $BASE/cpl.py < "$STEP3" > "$OUT"
+
+          /usr/bin/python3 $BASE/plot_cpl.py "$OUT"
+          EOF
+
+          chmod +x /usr/local/bin/run-chess-analysis.sh
+          chown ubuntu:ubuntu /usr/local/bin/run-chess-analysis.sh
+
           # ================= ANALYSIS SERVICE =================
           cat >/etc/systemd/system/chess-analysis.service <<EOF
           [Unit]
@@ -152,11 +182,14 @@ Resources:
           Type=oneshot
           User=ubuntu
           WorkingDirectory=/home/ubuntu/chess_statistics
-          ExecStart=/bin/bash -c '/usr/bin/python3 pgn_to_fen.py /home/ubuntu/games.pgn | /usr/bin/python3 eval.py | { read -r header; echo "$header"; sort -t, -k1,1n -k2,2n; } | /usr/bin/python3 cpl.py > analysis.csv && /usr/bin/python3 plot_cpl.py'
+          Environment=LANG=C
+          Environment=LC_ALL=C
+          ExecStart=/usr/local/bin/run-chess-analysis.sh
 
           [Install]
           WantedBy=multi-user.target
           EOF
+
 
           systemctl daemon-reload
           systemctl enable http8000 lichess-download chess-analysis
